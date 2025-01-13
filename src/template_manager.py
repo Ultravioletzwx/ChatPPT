@@ -7,7 +7,7 @@ def load_template(template_path: str) -> Presentation:
 def get_layout_mapping(prs: Presentation) -> dict:
     layout_mapping = {}
     for idx, layout in enumerate(prs.slide_layouts):
-        layout_mapping[layout.name] = idx
+        layout_mapping[layout.name.strip()] = idx
     return layout_mapping
 
 def print_layouts(prs: Presentation):

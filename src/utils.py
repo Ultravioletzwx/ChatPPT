@@ -5,4 +5,4 @@ def remove_all_slides(prs: Presentation):
     slides = list(xml_slides)
     for slide in slides:
         xml_slides.remove(slide)
-    print("所有默认幻灯片已被移除。")
+    print(f"所有默认幻灯片已被移除，移除了{len(slides)}张幻灯片。")

@@ -32,7 +32,7 @@ def generate_presentation(powerpoint_data, template_path: str, output_path: str)
                 break
 
         if slide.content.image_path:
-            image_full_path = os.path.join(os.getcwd(), slide.content.image_path)
+            image_full_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), slide.content.image_path)
             if os.path.exists(image_full_path):
                 for shape in new_slide.placeholders:
                     if shape.placeholder_format.type == 18:
