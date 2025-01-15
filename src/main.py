@@ -49,7 +49,6 @@ if __name__ == "__main__":
         default='inputs/test_input.md',  # 默认值为 'inputs/test_input.md'
         help='输入 markdown 文件的路径（默认: inputs/test_input.md）'
     )
-    
     # 解析命令行参数
     args = parser.parse_args()
 

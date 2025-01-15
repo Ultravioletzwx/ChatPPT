@@ -19,28 +19,28 @@ class LayoutStrategy(ABC):
 class TitleOnlyStrategy(LayoutStrategy):
     def get_layout(self, slide_content: SlideContent, layout_mapping: dict) -> Tuple[int, str]:
         layout_name = 'Title Only'  # 布局名称为 "Title Only"
-        layout_id = layout_mapping.get(layout_name, 1)  # 获取布局 ID，默认值为 1
+        layout_id = layout_mapping.get(layout_name, 0)  # 获取布局 ID，默认值为 0
         return layout_id, layout_name
 
 # TitleAndContentStrategy 类，表示包含标题和内容的布局策略。
 class TitleAndContentStrategy(LayoutStrategy):
     def get_layout(self, slide_content: SlideContent, layout_mapping: dict) -> Tuple[int, str]:
         layout_name = 'Title and Content'  # 布局名称为 "Title and Content"
-        layout_id = layout_mapping.get(layout_name, 2)  # 获取布局 ID，默认值为 2
+        layout_id = layout_mapping.get(layout_name, 1)  # 获取布局 ID，默认值为 1
         return layout_id, layout_name
 
 # TitleAndPictureStrategy 类，表示包含标题和图片的布局策略。
 class TitleAndPictureStrategy(LayoutStrategy):
     def get_layout(self, slide_content: SlideContent, layout_mapping: dict) -> Tuple[int, str]:
         layout_name = 'Title and Picture'  # 布局名称为 "Title and Picture"
-        layout_id = layout_mapping.get(layout_name, 3)  # 获取布局 ID，默认值为 3
+        layout_id = layout_mapping.get(layout_name, 2)  # 获取布局 ID，默认值为 2
         return layout_id, layout_name
 
 # TitleContentAndPictureStrategy 类，表示包含标题、内容和图片的布局策略。
 class TitleContentAndPictureStrategy(LayoutStrategy):
     def get_layout(self, slide_content: SlideContent, layout_mapping: dict) -> Tuple[int, str]:
         layout_name = 'Title, Content, and Picture'  # 布局名称为 "Title, Content, and Picture"
-        layout_id = layout_mapping.get(layout_name, 4)  # 获取布局 ID，默认值为 4
+        layout_id = layout_mapping.get(layout_name, 3)  # 获取布局 ID，默认值为 3
         return layout_id, layout_name
 
 # 布局管理器类，负责根据 SlideContent 自动选择合适的布局策略。

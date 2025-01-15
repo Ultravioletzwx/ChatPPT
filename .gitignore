@@ -167,3 +167,5 @@ outputs/*
 tests/*
 .DS_STore
 jupyter/*.pptx
+logs/*
+.idea/*

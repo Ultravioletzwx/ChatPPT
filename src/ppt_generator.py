@@ -48,9 +48,9 @@ def generate_presentation(powerpoint_data, template_path: str, output_path: str)
             image_full_path = os.path.join(os.getcwd(), slide.content.image_path)  # 构建图片的绝对路径
             if os.path.exists(image_full_path):
                 # 插入图片到占位符中
-                for shape in new_slide.placeholders:
-                    if shape.placeholder_format.type == 18:  # 18 表示图片占位符
-                        shape.insert_picture(image_full_path)
+                for placeholder in new_slide.placeholders:
+                    if placeholder.placeholder_format.type == 18:  # 18 表示图片占位符
+                        placeholder.insert_picture(image_full_path)
                         LOG.debug(f"插入图片: {image_full_path}")
                         break
             else:

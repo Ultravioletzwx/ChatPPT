@@ -17,9 +17,9 @@ def parse_input_text(input_text: str, layout_manager: LayoutManager) -> PowerPoi
     slide_builder: Optional[SlideBuilder] = None  # 当前幻灯片的构建器
 
     # 正则表达式，用于匹配幻灯片标题、要点和图片
-    slide_title_pattern = re.compile(r'^##\s+(.*)')
-    bullet_pattern = re.compile(r'^-\s+(.*)')
-    image_pattern = re.compile(r'!\[.*?\]\((.*?)\)')
+    slide_title_pattern = re.compile(r'^##\s+(.*)')  # eg ## 幻灯片标题
+    bullet_pattern = re.compile(r'^-\s+(.*)')  # eg - 要点
+    image_pattern = re.compile(r'!\[.*?\]\((.*?)\)')  # eg ![图片说明](http://example.com/image.jpg)
 
     for line in lines:
         line = line.strip()  # 去除空格
