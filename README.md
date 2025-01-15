@@ -52,6 +52,12 @@ pip install -r requirements.txt
 python src/main.py test_input.md
 ```
 
+或者，你也可以通过 Gradio 界面运行：
+```sh
+python src/gradio2ppt.py
+```
+![gradio_interface](images/gradio_example.png)
+![gradio_interface_2](images/gradio_example_2.png)
 通过此模式，您可以手动提供 PowerPoint 文件内容（格式请参考：[ChatPPT 输入文本格式说明](docs/ppt_input_format.md)），并按照配置的 [PowerPoint 模板](templates/StandardTemplate.pptx),生成演示文稿。
 
 ## 贡献
