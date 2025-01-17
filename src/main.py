@@ -6,7 +6,6 @@ from template_manager import load_template, print_layouts, get_layout_mapping
 from layout_manager import LayoutManager
 from config import Config
 from logger import LOG  # 引入 LOG 模块
-
 # 定义主函数，处理输入并生成 PowerPoint 演示文稿
 def main(input_file):
     config = Config()  # 加载配置文件

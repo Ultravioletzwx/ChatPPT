@@ -27,6 +27,7 @@ def generate_contents(message, history):
 # Define the function to handle the generate button click
 def handle_generate(history):
     # Generate the slides content based on the chat history
+    print(f'history: {history}')
     slides_content = history[-1]["content"]
     # 调用 parse_input_text 函数，解析输入文本，生成 PowerPoint 数据结构
     powerpoint_data, presentation_title = parse_input_text(slides_content, layout_manager)
