@@ -6,23 +6,6 @@ from slide_builder import SlideBuilder
 from layout_manager import LayoutManager
 from logger import LOG  # 引入日志模块
 
-def parse_bullet_point_level(line: str) -> (int, str):
-    """
-    根据项目符号行解析其缩进层级，并返回项目符号的文本内容。
-    """
-    # 计算前导空格或 Tab 的数量
-    indent_length = len(line) - len(line.lstrip())
-
-    # 每 2 个空格算作一个缩进级别，或者根据实际的缩进规则
-    indent_level = indent_length // 2
-
-    LOG.debug(indent_level)
-    LOG.debug(line)
-
-    bullet_text = line.strip().lstrip('- ').strip()  # 去除 '-' 并处理前后空格，得到项目符号内容
-    return indent_level, bullet_text
-
-
 # 解析输入文本，生成 PowerPoint 数据结构
 def parse_input_text(input_text: str, layout_manager: LayoutManager) -> PowerPoint:
     """

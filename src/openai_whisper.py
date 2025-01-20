@@ -110,7 +110,7 @@ def transcribe(inputs, task):
 
     # 检查音频文件格式
     file_ext = os.path.splitext(inputs)[1].lower()
-    if file_ext not in ['.wav', '.flac', '.mp3']:
+    if file_ext not in ['.wav', '.flac', '.mp3', '.mp4']:
         LOG.error(f"文件格式错误：{inputs}")
         raise gr.Error("不支持的文件格式！请上传 WAV、FLAC 或 MP3 文件。")
 
@@ -156,6 +156,6 @@ if __name__ == "__main__":
     # 启动Gradio应用，允许队列功能，并通过 HTTPS 访问
     demo.queue().launch(
         share=False,
-        server_name="0.0.0.0",
+        # server_name="0.0.0.0",
         # auth=("django", "1234") # ⚠️注意：记住修改密码
     )

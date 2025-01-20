@@ -26,7 +26,6 @@ def generate_contents(message, history):
     try:
         # 初始化一个列表，用于收集用户输入的文本和音频转录
         texts = []
-
         # 获取文本输入，如果存在则添加到列表
         text_input = message.get("text")
         if text_input:

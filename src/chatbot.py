@@ -2,7 +2,7 @@
 
 import json
 from abc import ABC, abstractmethod
-
+import os
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder  # 导入提示模板相关类
 from langchain_core.messages import HumanMessage  # 导入消息类
@@ -16,6 +16,7 @@ class ChatBot(ABC):
     """
     聊天机器人基类，提供聊天功能。
     """
+
     def __init__(self, prompt_file, session_id=None):
         self.prompt_file = prompt_file
         self.session_id = session_id if session_id else "default_session_id"
@@ -33,7 +34,6 @@ class ChatBot(ABC):
         except FileNotFoundError:
             raise FileNotFoundError(f"找不到提示文件 {self.prompt_file}!")
 
-
     def create_chatbot(self):
         """
         初始化聊天机器人，包括系统提示和消息历史记录。
@@ -45,11 +45,11 @@ class ChatBot(ABC):
         ])
 
         # 初始化 ChatOllama 模型，配置参数
-        self.chatbot = system_prompt | ChatOpenAI(model="gpt-4o-mini")  # 使用的模型名称)
+        self.chatbot = system_prompt | ChatOpenAI(model="gpt-4o-mini", openai_api_key=os.environ.get("aihubmix_key"),
+                                                  openai_api_base="https://api.aihubmix.com/v1")  # 使用的模型名称)
 
         # 将聊天机器人与消息历史记录关联
         self.chatbot_with_history = RunnableWithMessageHistory(self.chatbot, get_session_history)
-
 
     def chat_with_history(self, user_input, session_id=None):
         """
@@ -64,7 +64,7 @@ class ChatBot(ABC):
         """
         if session_id is None:
             session_id = self.session_id
-    
+
         response = self.chatbot_with_history.invoke(
             [HumanMessage(content=user_input)],  # 将用户输入封装为 HumanMessage
             {"configurable": {"session_id": session_id}},  # 传入配置，包括会话ID
